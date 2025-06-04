@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const categories = [
+  {
+    name: "Cake Toppers",
+    description: "Personalized toppers for every occasion",
+    products: [
+      { name: "Birthday Number Toppers", price: "$15", description: "Custom age numbers in various styles" },
+      { name: "Wedding Cake Toppers", price: "$35", description: "Elegant Mr & Mrs designs" },
+      { name: "Baby Shower Toppers", price: "$20", description: "Cute designs for your special day" },
+      { name: "Holiday Themed Toppers", price: "$18", description: "Seasonal designs for all holidays" }
+    ]
+  },
+  {
+    name: "Cupcake Stands",
+    description: "Display your treats in style",
+    products: [
+      { name: "3-Tier Acrylic Stand", price: "$45", description: "Holds up to 36 cupcakes" },
+      { name: "5-Tier Tower Stand", price: "$65", description: "Perfect for large parties" },
+      { name: "Rotating Display Stand", price: "$55", description: "360° rotating base" },
+      { name: "Collapsible Wood Stand", price: "$40", description: "Easy storage design" }
+    ]
+  },
+  {
+    name: "Custom Designs",
+    description: "Your imagination, our expertise",
+    products: [
+      { name: "Logo Engravings", price: "From $25", description: "Business logos on various materials" },
+      { name: "Name Plates", price: "From $20", description: "Personalized name displays" },
+      { name: "Cookie Stencils", price: "From $15", description: "Food-safe stencils for decorating" },
+      { name: "Cake Decorating Tools", price: "From $30", description: "Custom tools for professionals" }
+    ]
+  }
+];
+---
+
+<Layout title="Products">
+  <section class="py-16 bg-gradient-to-br from-pink-50 to-purple-50">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-4">Our Products</h1>
+      <p class="text-xl text-center text-gray-700 max-w-3xl mx-auto">
+        Explore our range of laser-cut and engraved products designed specifically for bakers and cake decorators
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      {categories.map((category, index) => (
+        <div class="mb-16" key={category.name}>
+          <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 mb-3">{category.name}</h2>
+            <p class="text-gray-600 mb-8">{category.description}</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {category.products.map((product) => (
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-6" key={product.name}>
+                  <div class={`h-32 rounded-lg mb-4 flex items-center justify-center ${
+                    index === 0 ? 'bg-gradient-to-br from-pink-100 to-purple-100' :
+                    index === 1 ? 'bg-gradient-to-br from-purple-100 to-pink-100' :
+                    'bg-gradient-to-br from-pink-100 to-purple-100'
+                  }`}>
+                    <svg class={`w-16 h-16 ${
+                      index === 0 ? 'text-pink-600' :
+                      index === 1 ? 'text-purple-600' :
+                      'text-pink-600'
+                    }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-1">{product.name}</h3>
+                  <p class="text-sm text-gray-600 mb-3">{product.description}</p>
+                  <div class="flex items-center justify-between">
+                    <span class="text-xl font-bold text-pink-600">{product.price}</span>
+                    <button class="bg-pink-600 text-white px-4 py-2 rounded-full text-sm hover:bg-pink-700 transition-colors">
+                      Inquire
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Need Something Special?</h2>
+        <p class="text-lg text-gray-700 mb-8">
+          We love bringing unique ideas to life. If you have a custom design in mind, let's talk about making it a reality.
+        </p>
+        <a href="/contact" class="bg-pink-600 text-white px-8 py-3 rounded-full hover:bg-pink-700 transition-colors font-semibold inline-block">
+          Request Custom Quote
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

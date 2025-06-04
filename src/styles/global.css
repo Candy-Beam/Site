@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Ensure SVGs don't overflow their containers */
+  svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Better font rendering */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Improved focus styles */
+  *:focus {
+    outline: 2px solid theme('colors.pink.500');
+    outline-offset: 2px;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1;
+  }
+  
+  /* Button transitions */
+  .btn-primary {
+    @apply bg-pink-600 text-white px-8 py-3 rounded-full hover:bg-pink-700 transition-all duration-200 font-semibold shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-pink-600 px-8 py-3 rounded-full hover:bg-gray-50 transition-all duration-200 font-semibold border-2 border-pink-600 hover:border-pink-700;
+  }
+}
+
+/* Fix for dropdown menu z-index */
+.group:hover .group-hover\:visible {
+  z-index: 50;
+}
