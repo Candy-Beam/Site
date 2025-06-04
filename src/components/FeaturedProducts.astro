@@ -1,4 +1,5 @@
 ---
+import ProductCard from './ProductCard.astro';
 import { getAllProducts, type Product, type ProductCategory } from '../data/products.ts';
 
 // Get all products and group by category
@@ -15,16 +16,6 @@ allProducts.forEach((product: Product) => {
 // Get first product from each category (up to 3 categories)
 const categories: string[] = Object.keys(productsByCategory).slice(0, 3);
 const featuredProducts: Product[] = categories.map(category => productsByCategory[category][0]);
-
-// Helper function to get gradient class based on index
-function getGradientClass(index: number): string {
-  const gradients = [
-    'from-pink-100 to-pink-200',
-    'from-purple-100 to-purple-200', 
-    'from-indigo-100 to-indigo-200'
-  ];
-  return gradients[index] || gradients[0];
-}
 ---
 
 <section class="py-16 bg-gray-50">
@@ -32,23 +23,7 @@ function getGradientClass(index: number): string {
     <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">Featured Products</h2>
     <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
       {featuredProducts.map((product: Product, index: number) => (
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow card-hover">
-          <div class={`h-48 bg-gradient-to-br ${getGradientClass(index)} flex items-center justify-center`}>
-            <img 
-              src={product.photos[0]} 
-              alt={product.name}
-              class="w-24 h-24 object-contain"
-            />
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2">{product.name}</h3>
-            <p class="text-gray-600 mb-3">{product.shortDescription}</p>
-            <div class="flex justify-between items-center">
-              <span class="text-lg font-bold text-pink-600">{product.price}</span>
-              <a href="/products" class="btn-secondary text-sm">View Details</a>
-            </div>
-          </div>
-        </div>
+        <ProductCard product={product} categoryIndex={index} />
       ))}
     </div>
   </div>
