@@ -9,11 +9,14 @@ const categories = await getCollection('categories');
 const categoriesWithProducts = await Promise.all(
   categories
     .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
-    .map(async (category) => ({
-      name: category.data.name,
-      description: category.body,
-      products: products.filter(p => p.data.category === category.slug)
-    }))
+    .map(async (category) => {
+      const { Content } = await category.render();
+      return {
+        name: category.data.name,
+        Content,
+        products: products.filter(p => p.data.category === category.slug)
+      };
+    })
 );
 ---
 
@@ -33,7 +36,9 @@ const categoriesWithProducts = await Promise.all(
         <div class="mb-16" key={category.name}>
           <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl font-bold text-gray-900 mb-3">{category.name}</h2>
-            <p class="text-gray-600 mb-8">{category.description}</p>
+            <div class="text-gray-600 mb-8 prose prose-gray max-w-none">
+              <category.Content />
+            </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
               {category.products.map((product) => (
