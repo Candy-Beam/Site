@@ -1,35 +1,28 @@
-# Astro Starter Kit: Minimal
+# Candy Beam
 
-```sh
-npm create astro@latest -- --template minimal
-```
+A modern website for Candy Beam, a precision laser cutting business specializing in custom baking and kitchen accessories. We create high-quality, custom-cut products for baking enthusiasts, professional kitchens, and culinary businesses.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## About Candy Beam
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Candy Beam combines precision laser cutting technology with a passion for baking to create unique, functional products that enhance the culinary experience. From custom cake decorating stencils to specialized kitchen tools, we bring precision and creativity to every project.
 
-## 🚀 Project Structure
+## Website Features
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Product Showcase**: Browse our catalog of laser-cut baking accessories
+- **Custom Orders**: Information about custom laser cutting services
+- **Contact & Support**: Easy ways to get in touch for orders and inquiries
+- **Business Policies**: Transparent terms, privacy, and refund policies
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Tech Stack
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+This website is built with modern web technologies for optimal performance and user experience:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Astro**: Static site generation for fast loading and SEO optimization
+- **TypeScript**: Type-safe development for reliable code
+- **Tailwind CSS**: Utility-first styling for responsive design
+- **Mobile-First**: Optimized for all devices and screen sizes
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
+## Development Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -42,6 +35,6 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## Contact
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+For business inquiries, custom orders, or technical support, please visit our [contact page](./src/pages/contact.astro) on the website.
