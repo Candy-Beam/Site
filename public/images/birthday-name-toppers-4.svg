@@ -1,0 +1,40 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f3e8ff"/>
+  
+  <!-- Elegant cake -->
+  <rect x="100" y="180" width="200" height="100" rx="10" fill="#e9d5ff" stroke="#a855f7" stroke-width="2"/>
+  <rect x="100" y="160" width="200" height="30" rx="5" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/>
+  
+  <!-- Multiple name toppers showcase -->
+  <g transform="translate(120, 100)">
+    <!-- Stick -->
+    <rect x="-2" y="30" width="4" height="60" fill="#581c87"/>
+    <!-- Name plate -->
+    <rect x="-40" y="0" width="80" height="30" rx="15" fill="#c084fc" stroke="#9333ea" stroke-width="2"/>
+    <text x="0" y="21" font-family="cursive" font-size="16" fill="#fff" text-anchor="middle" font-style="italic">Liam</text>
+  </g>
+  
+  <g transform="translate(200, 100)">
+    <!-- Stick -->
+    <rect x="-2" y="30" width="4" height="60" fill="#581c87"/>
+    <!-- Name plate with sparkle effect -->
+    <rect x="-40" y="0" width="80" height="30" rx="15" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/>
+    <text x="0" y="21" font-family="cursive" font-size="16" fill="#92400e" text-anchor="middle" font-style="italic">Noah</text>
+  </g>
+  
+  <g transform="translate(280, 100)">
+    <!-- Stick -->
+    <rect x="-2" y="30" width="4" height="60" fill="#581c87"/>
+    <!-- Name plate -->
+    <rect x="-40" y="0" width="80" height="30" rx="15" fill="#60a5fa" stroke="#2563eb" stroke-width="2"/>
+    <text x="0" y="21" font-family="cursive" font-size="16" fill="#fff" text-anchor="middle" font-style="italic">Ava</text>
+  </g>
+  
+  <!-- Sparkle effects -->
+  <g fill="#fbbf24" opacity="0.8">
+    <path d="M 50 50 L 55 55 L 50 60 L 45 55 Z"/>
+    <path d="M 350 50 L 355 55 L 350 60 L 345 55 Z"/>
+    <path d="M 70 130 L 75 135 L 70 140 L 65 135 Z"/>
+    <path d="M 330 130 L 335 135 L 330 140 L 325 135 Z"/>
+  </g>
+</svg>
