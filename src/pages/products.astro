@@ -41,9 +41,9 @@ const categories = [
             <h2 class="text-3xl font-bold text-gray-900 mb-3">{category.name}</h2>
             <p class="text-gray-600 mb-8">{category.description}</p>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
               {category.products.map((product) => (
-                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-6" key={product.name}>
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-6 flex flex-col h-full" key={product.name}>
                   <div class={`h-32 rounded-lg mb-4 flex items-center justify-center ${
                     index === 0 ? 'bg-gradient-to-br from-pink-100 to-purple-100' :
                     index === 1 ? 'bg-gradient-to-br from-purple-100 to-pink-100' :
@@ -58,7 +58,7 @@ const categories = [
                     </svg>
                   </div>
                   <h3 class="text-lg font-semibold text-gray-900 mb-1">{product.name}</h3>
-                  <p class="text-sm text-gray-600 mb-3">{product.shortDescription}</p>
+                  <p class="text-sm text-gray-600 mb-4 flex-1">{product.shortDescription}</p>
                   <div class="flex items-center justify-between">
                     <span class="text-xl font-bold text-pink-600">{product.price}</span>
                     <a 
