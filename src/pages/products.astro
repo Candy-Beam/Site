@@ -1,36 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getAllProducts } from '../data/products.js';
+
+const allProducts = getAllProducts();
 
 const categories = [
   {
     name: "Cake Toppers",
     description: "Personalized toppers for every occasion",
-    products: [
-      { name: "Birthday Number Toppers", price: "$15", description: "Custom age numbers in various styles" },
-      { name: "Wedding Cake Toppers", price: "$35", description: "Elegant Mr & Mrs designs" },
-      { name: "Baby Shower Toppers", price: "$20", description: "Cute designs for your special day" },
-      { name: "Holiday Themed Toppers", price: "$18", description: "Seasonal designs for all holidays" }
-    ]
+    products: allProducts.filter(p => p.category === "Cake Toppers")
   },
   {
-    name: "Cupcake Stands",
+    name: "Cupcake Stands", 
     description: "Display your treats in style",
-    products: [
-      { name: "3-Tier Acrylic Stand", price: "$45", description: "Holds up to 36 cupcakes" },
-      { name: "5-Tier Tower Stand", price: "$65", description: "Perfect for large parties" },
-      { name: "Rotating Display Stand", price: "$55", description: "360° rotating base" },
-      { name: "Collapsible Wood Stand", price: "$40", description: "Easy storage design" }
-    ]
+    products: allProducts.filter(p => p.category === "Cupcake Stands")
   },
   {
     name: "Custom Designs",
-    description: "Your imagination, our expertise",
-    products: [
-      { name: "Logo Engravings", price: "From $25", description: "Business logos on various materials" },
-      { name: "Name Plates", price: "From $20", description: "Personalized name displays" },
-      { name: "Cookie Stencils", price: "From $15", description: "Food-safe stencils for decorating" },
-      { name: "Cake Decorating Tools", price: "From $30", description: "Custom tools for professionals" }
-    ]
+    description: "Your imagination, our expertise", 
+    products: allProducts.filter(p => p.category === "Custom Designs")
   }
 ];
 ---
@@ -70,12 +58,15 @@ const categories = [
                     </svg>
                   </div>
                   <h3 class="text-lg font-semibold text-gray-900 mb-1">{product.name}</h3>
-                  <p class="text-sm text-gray-600 mb-3">{product.description}</p>
+                  <p class="text-sm text-gray-600 mb-3">{product.shortDescription}</p>
                   <div class="flex items-center justify-between">
                     <span class="text-xl font-bold text-pink-600">{product.price}</span>
-                    <button class="bg-pink-600 text-white px-4 py-2 rounded-full text-sm hover:bg-pink-700 transition-colors">
-                      Inquire
-                    </button>
+                    <a 
+                      href={`/products/${product.id}`}
+                      class="bg-pink-600 text-white px-4 py-2 rounded-full text-sm hover:bg-pink-700 transition-colors"
+                    >
+                      View Details
+                    </a>
                   </div>
                 </div>
               ))}

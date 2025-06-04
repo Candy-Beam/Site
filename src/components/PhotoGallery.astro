@@ -1,0 +1,90 @@
+---
+export interface Props {
+  photos: string[];
+  productName: string;
+}
+
+const { photos, productName } = Astro.props;
+---
+
+<div class="photo-gallery">
+  <div class="main-image-container">
+    <img 
+      id="main-image" 
+      src={photos[0]} 
+      alt={`${productName} - Main photo`}
+      class="w-full h-96 object-cover rounded-lg shadow-lg"
+    />
+  </div>
+  
+  {photos.length > 1 && (
+    <div class="thumbnail-container mt-4">
+      <div class="flex gap-3 overflow-x-auto pb-2">
+        {photos.map((photo, index) => (
+          <button
+            class={`thumbnail-btn flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+              index === 0 ? 'border-pink-500' : 'border-gray-200 hover:border-pink-300'
+            }`}
+            data-photo={photo}
+            data-index={index}
+          >
+            <img 
+              src={photo} 
+              alt={`${productName} - Photo ${index + 1}`}
+              class="w-full h-full object-cover"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  )}
+</div>
+
+<style>
+  .thumbnail-container {
+    scrollbar-width: thin;
+    scrollbar-color: #ec4899 #f3f4f6;
+  }
+  
+  .thumbnail-container::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .thumbnail-container::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 3px;
+  }
+  
+  .thumbnail-container::-webkit-scrollbar-thumb {
+    background: #ec4899;
+    border-radius: 3px;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const mainImage = document.getElementById('main-image');
+    const thumbnailButtons = document.querySelectorAll('.thumbnail-btn');
+    
+    thumbnailButtons.forEach((btn, index) => {
+      btn.addEventListener('click', function() {
+        const photoSrc = this.getAttribute('data-photo');
+        const photoIndex = this.getAttribute('data-index');
+        
+        // Update main image
+        if (mainImage && photoSrc) {
+          mainImage.src = photoSrc;
+          mainImage.alt = `${mainImage.alt.split(' - ')[0]} - Photo ${parseInt(photoIndex) + 1}`;
+        }
+        
+        // Update active thumbnail styling
+        thumbnailButtons.forEach(tb => {
+          tb.classList.remove('border-pink-500');
+          tb.classList.add('border-gray-200');
+        });
+        this.classList.add('border-pink-500');
+        this.classList.remove('border-gray-200');
+      });
+    });
+  });
+</script>
