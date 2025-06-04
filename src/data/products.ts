@@ -1,4 +1,17 @@
-export const products = {
+export interface Product {
+  id: string;
+  name: string;
+  category: string;
+  price: string;
+  shortDescription: string;
+  description: string;
+  features: string[];
+  photos: string[];
+}
+
+export type ProductCategory = 'Cake Toppers' | 'Cupcake Stands' | 'Custom Designs';
+
+export const products: Record<string, Product> = {
   // Cake Toppers
   "birthday-number-toppers": {
     id: "birthday-number-toppers",
@@ -247,14 +260,14 @@ export const products = {
   }
 };
 
-export function getProductById(id) {
+export function getProductById(id: string): Product | undefined {
   return products[id];
 }
 
-export function getAllProducts() {
+export function getAllProducts(): Product[] {
   return Object.values(products);
 }
 
-export function getProductsByCategory(category) {
+export function getProductsByCategory(category: ProductCategory): Product[] {
   return Object.values(products).filter(product => product.category === category);
 }
