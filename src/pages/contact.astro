@@ -1,16 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
 ---
 
 <Layout title="Contact">
-  <section class="py-16 bg-gradient-to-br from-pink-50 to-purple-50">
-    <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-4">Get in Touch</h1>
-      <p class="text-xl text-center text-gray-700 max-w-3xl mx-auto">
-        Have a question or ready to start your custom project? We'd love to hear from you!
-      </p>
-    </div>
-  </section>
+  <PageHeader 
+    slot="page-header"
+    title="Get in Touch" 
+    description="Have a question or ready to start your custom project? We'd love to hear from you!"
+  />
 
   <section class="py-16">
     <div class="container mx-auto px-4">

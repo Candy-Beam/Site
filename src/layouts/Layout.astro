@@ -23,6 +23,7 @@ const { title, description = 'Candy Beam - Precision laser cutting and engraving
   </head>
   <body class="min-h-screen flex flex-col overflow-x-hidden max-w-full">
     <Header />
+    <slot name="page-header" />
     <main class="flex-grow">
       <slot />
     </main>
