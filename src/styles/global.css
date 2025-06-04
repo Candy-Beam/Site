@@ -29,7 +29,7 @@
   
   /* Improved focus styles */
   *:focus {
-    outline: 2px solid theme('colors.pink.500');
+    outline: 2px solid theme('colors.gold.500');
     outline-offset: 2px;
   }
   
@@ -47,11 +47,11 @@
   
   /* Button transitions */
   .btn-primary {
-    @apply bg-pink-600 text-white px-8 py-3 rounded-full hover:bg-pink-700 transition-all duration-200 font-semibold shadow-md hover:shadow-lg;
+    @apply bg-gold-600 text-white px-8 py-3 rounded-full hover:bg-gold-700 transition-all duration-200 font-semibold shadow-md hover:shadow-lg;
   }
   
   .btn-secondary {
-    @apply bg-white text-pink-600 px-8 py-3 rounded-full hover:bg-gray-50 transition-all duration-200 font-semibold border-2 border-pink-600 hover:border-pink-700;
+    @apply bg-white text-gold-600 px-8 py-3 rounded-full hover:bg-gold-50 transition-all duration-200 font-semibold border-2 border-gold-600 hover:border-gold-700;
   }
 }
 
