@@ -1,0 +1,8 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#fefce8"/>
+  <rect x="50" y="50" width="700" height="500" fill="white" rx="20"/>
+  <rect x="200" y="250" width="400" height="100" fill="#facc15" rx="15"/>
+  <text x="400" y="310" text-anchor="middle" font-family="serif" font-size="28" font-weight="bold" fill="white">Custom Name</text>
+  <text x="400" y="200" text-anchor="middle" font-family="Arial" font-size="20" fill="#ca8a04">Name Plate Style 1</text>
+  <text x="400" y="420" text-anchor="middle" font-family="Arial" font-size="16" fill="#6b7280">Personalized displays</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#fef3c7"/>
+  <rect x="50" y="50" width="700" height="500" fill="white" rx="20"/>
+  <rect x="280" y="480" width="240" height="15" fill="#f59e0b" rx="8"/>
+  <rect x="300" y="450" width="200" height="15" fill="#f59e0b" rx="8"/>
+  <rect x="320" y="420" width="160" height="15" fill="#f59e0b" rx="8"/>
+  <rect x="340" y="390" width="120" height="15" fill="#f59e0b" rx="8"/>
+  <rect x="360" y="360" width="80" height="15" fill="#f59e0b" rx="8"/>
+  <text x="400" y="300" text-anchor="middle" font-family="Arial" font-size="24" fill="#d97706">5-Tier Tower</text>
+  <text x="400" y="250" text-anchor="middle" font-family="Arial" font-size="16" fill="#6b7280">Angle 2 - Perfect for events</text>
+</svg>

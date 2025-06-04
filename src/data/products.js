@@ -15,9 +15,9 @@ export const products = {
       "Easy to clean and reuse"
     ],
     photos: [
-      "/images/birthday-toppers-1.jpg",
-      "/images/birthday-toppers-2.jpg",
-      "/images/birthday-toppers-3.jpg"
+      "/images/birthday-toppers-1.svg",
+      "/images/birthday-toppers-2.svg",
+      "/images/birthday-toppers-3.svg"
     ]
   },
   "wedding-cake-toppers": {
@@ -35,10 +35,10 @@ export const products = {
       "Keepsake quality construction"
     ],
     photos: [
-      "/images/wedding-toppers-1.jpg",
-      "/images/wedding-toppers-2.jpg", 
-      "/images/wedding-toppers-3.jpg",
-      "/images/wedding-toppers-4.jpg"
+      "/images/wedding-toppers-1.svg",
+      "/images/wedding-toppers-2.svg", 
+      "/images/wedding-toppers-3.svg",
+      "/images/wedding-toppers-4.svg"
     ]
   },
   "baby-shower-toppers": {
@@ -56,8 +56,8 @@ export const products = {
       "Lightweight and easy to position"
     ],
     photos: [
-      "/images/baby-shower-toppers-1.jpg",
-      "/images/baby-shower-toppers-2.jpg"
+      "/images/baby-shower-toppers-1.svg",
+      "/images/baby-shower-toppers-2.svg"
     ]
   },
   "holiday-themed-toppers": {
@@ -75,11 +75,11 @@ export const products = {
       "Mix and match compatible"
     ],
     photos: [
-      "/images/holiday-toppers-1.jpg",
-      "/images/holiday-toppers-2.jpg",
-      "/images/holiday-toppers-3.jpg",
-      "/images/holiday-toppers-4.jpg",
-      "/images/holiday-toppers-5.jpg"
+      "/images/holiday-toppers-1.svg",
+      "/images/holiday-toppers-2.svg",
+      "/images/holiday-toppers-3.svg",
+      "/images/holiday-toppers-4.svg",
+      "/images/holiday-toppers-5.svg"
     ]
   },
 
@@ -99,8 +99,8 @@ export const products = {
       "Stackable for storage"
     ],
     photos: [
-      "/images/3-tier-stand-1.jpg",
-      "/images/3-tier-stand-2.jpg"
+      "/images/3-tier-stand-1.svg",
+      "/images/3-tier-stand-2.svg"
     ]
   },
   "5-tier-tower-stand": {
@@ -118,9 +118,9 @@ export const products = {
       "Professional presentation quality"
     ],
     photos: [
-      "/images/5-tier-stand-1.jpg",
-      "/images/5-tier-stand-2.jpg",
-      "/images/5-tier-stand-3.jpg"
+      "/images/5-tier-stand-1.svg",
+      "/images/5-tier-stand-2.svg",
+      "/images/5-tier-stand-3.svg"
     ]
   },
   "rotating-display-stand": {
@@ -138,10 +138,10 @@ export const products = {
       "Easy to load and access treats"
     ],
     photos: [
-      "/images/rotating-stand-1.jpg",
-      "/images/rotating-stand-2.jpg",
-      "/images/rotating-stand-3.jpg",
-      "/images/rotating-stand-4.jpg"
+      "/images/rotating-stand-1.svg",
+      "/images/rotating-stand-2.svg",
+      "/images/rotating-stand-3.svg",
+      "/images/rotating-stand-4.svg"
     ]
   },
   "collapsible-wood-stand": {
@@ -159,8 +159,8 @@ export const products = {
       "Rustic and elegant design"
     ],
     photos: [
-      "/images/wood-stand-1.jpg",
-      "/images/wood-stand-2.jpg"
+      "/images/wood-stand-1.svg",
+      "/images/wood-stand-2.svg"
     ]
   },
 
@@ -180,9 +180,9 @@ export const products = {
       "Professional finish quality"
     ],
     photos: [
-      "/images/logo-engravings-1.jpg",
-      "/images/logo-engravings-2.jpg",
-      "/images/logo-engravings-3.jpg"
+      "/images/logo-engravings-1.svg",
+      "/images/logo-engravings-2.svg",
+      "/images/logo-engravings-3.svg"
     ]
   },
   "name-plates": {
@@ -200,8 +200,8 @@ export const products = {
       "Bulk ordering available"
     ],
     photos: [
-      "/images/name-plates-1.jpg",
-      "/images/name-plates-2.jpg"
+      "/images/name-plates-1.svg",
+      "/images/name-plates-2.svg"
     ]
   },
   "cookie-stencils": {
@@ -219,9 +219,9 @@ export const products = {
       "Custom design services available"
     ],
     photos: [
-      "/images/cookie-stencils-1.jpg",
-      "/images/cookie-stencils-2.jpg",
-      "/images/cookie-stencils-3.jpg"
+      "/images/cookie-stencils-1.svg",
+      "/images/cookie-stencils-2.svg",
+      "/images/cookie-stencils-3.svg"
     ]
   },
   "cake-decorating-tools": {
@@ -239,10 +239,10 @@ export const products = {
       "Professional baker approved"
     ],
     photos: [
-      "/images/decorating-tools-1.jpg",
-      "/images/decorating-tools-2.jpg",
-      "/images/decorating-tools-3.jpg",
-      "/images/decorating-tools-4.jpg"
+      "/images/decorating-tools-1.svg",
+      "/images/decorating-tools-2.svg",
+      "/images/decorating-tools-3.svg",
+      "/images/decorating-tools-4.svg"
     ]
   }
 };

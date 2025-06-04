@@ -1,0 +1,9 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f0f9ff"/>
+  <rect x="50" y="50" width="700" height="500" fill="white" rx="20"/>
+  <rect x="300" y="450" width="200" height="20" fill="#0ea5e9" rx="10"/>
+  <rect x="320" y="400" width="160" height="20" fill="#0ea5e9" rx="10"/>
+  <rect x="340" y="350" width="120" height="20" fill="#0ea5e9" rx="10"/>
+  <text x="400" y="300" text-anchor="middle" font-family="Arial" font-size="24" fill="#0369a1">3-Tier Stand</text>
+  <text x="400" y="250" text-anchor="middle" font-family="Arial" font-size="16" fill="#6b7280">View 1 - Holds 36 cupcakes</text>
+</svg>

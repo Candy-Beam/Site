@@ -1,0 +1,8 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f8fafc"/>
+  <rect x="50" y="50" width="700" height="500" fill="white" rx="20"/>
+  <rect x="200" y="200" width="400" height="200" fill="#e2e8f0" rx="20"/>
+  <text x="400" y="280" text-anchor="middle" font-family="Arial" font-size="32" font-weight="bold" fill="#475569">LOGO</text>
+  <text x="400" y="310" text-anchor="middle" font-family="Arial" font-size="16" fill="#64748b">Business Engraving 1</text>
+  <text x="400" y="450" text-anchor="middle" font-family="Arial" font-size="18" fill="#1e293b">Custom Logo Engraving</text>
+</svg>

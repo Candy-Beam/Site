@@ -1,0 +1,10 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f3e8ff"/>
+  <rect x="50" y="50" width="700" height="500" fill="white" rx="20"/>
+  <circle cx="400" cy="350" r="120" fill="#a855f7" opacity="0.3"/>
+  <circle cx="400" cy="350" r="80" fill="#a855f7" opacity="0.5"/>
+  <circle cx="400" cy="350" r="40" fill="#a855f7"/>
+  <text x="400" y="200" text-anchor="middle" font-family="Arial" font-size="24" fill="#7c3aed">Rotating Stand</text>
+  <text x="400" y="230" text-anchor="middle" font-family="Arial" font-size="16" fill="#6b7280">View 4 - 360° rotation</text>
+  <text x="400" y="480" text-anchor="middle" font-family="Arial" font-size="14" fill="#9333ea">🔄 Smooth operation</text>
+</svg>

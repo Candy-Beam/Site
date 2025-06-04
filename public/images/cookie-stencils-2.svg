@@ -1,0 +1,10 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#fef2f2"/>
+  <rect x="50" y="50" width="700" height="500" fill="white" rx="20"/>
+  <circle cx="400" cy="300" r="100" fill="#fecaca" stroke="#dc2626" stroke-width="3" fill="none"/>
+  <circle cx="380" cy="280" r="8" fill="#dc2626"/>
+  <circle cx="420" cy="280" r="8" fill="#dc2626"/>
+  <path d="M 360 320 Q 400 340 440 320" stroke="#dc2626" stroke-width="4" fill="none"/>
+  <text x="400" y="450" text-anchor="middle" font-family="Arial" font-size="20" fill="#dc2626">Cookie Stencil 2</text>
+  <text x="400" y="480" text-anchor="middle" font-family="Arial" font-size="14" fill="#6b7280">Food-safe decorating tool</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f0f9ff"/>
+  <rect x="50" y="50" width="700" height="500" fill="white" rx="20"/>
+  <rect x="200" y="150" width="400" height="200" fill="#ddd6fe" rx="15"/>
+  <text x="400" y="230" text-anchor="middle" font-family="Arial" font-size="32" font-weight="bold" fill="#6b21a8">SWEET 16</text>
+  <text x="400" y="260" text-anchor="middle" font-family="Arial" font-size="16" fill="#7c3aed">Custom Text Available</text>
+  <text x="400" y="420" text-anchor="middle" font-family="Arial" font-size="18" fill="#be185d">Personalized Messages</text>
+</svg>

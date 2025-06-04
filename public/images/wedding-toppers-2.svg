@@ -1,0 +1,8 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#fdf2f8"/>
+  <rect x="50" y="50" width="700" height="500" fill="white" rx="20"/>
+  <text x="400" y="200" text-anchor="middle" font-family="serif" font-size="42" font-weight="bold" fill="#be185d">Mr &amp; Mrs</text>
+  <text x="400" y="250" text-anchor="middle" font-family="serif" font-size="24" fill="#9ca3af">Wedding Cake Topper 2</text>
+  <rect x="250" y="320" width="300" height="80" fill="#f9a8d4" rx="40"/>
+  <text x="400" y="370" text-anchor="middle" font-family="Arial" font-size="16" fill="white">Elegant Design</text>
+</svg>

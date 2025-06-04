@@ -1,0 +1,8 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#fef3c7"/>
+  <rect x="50" y="50" width="700" height="500" fill="white" rx="20"/>
+  <circle cx="400" cy="200" r="70" fill="#fbbf24"/>
+  <text x="400" y="210" text-anchor="middle" font-family="Arial" font-size="24" fill="white">👶</text>
+  <text x="400" y="320" text-anchor="middle" font-family="Arial" font-size="28" fill="#d97706">Baby Shower</text>
+  <text x="400" y="350" text-anchor="middle" font-family="Arial" font-size="18" fill="#92400e">Cute Design 1</text>
+</svg>
