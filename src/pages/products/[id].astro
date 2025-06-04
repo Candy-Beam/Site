@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PhotoGallery from '../../components/PhotoGallery.astro';
-import { getProductById, getAllProducts } from '../../data/products.js';
+import { getProductById, getAllProducts, type Product } from '../../data/products.ts';
 
 export async function getStaticPaths() {
   const products = getAllProducts();

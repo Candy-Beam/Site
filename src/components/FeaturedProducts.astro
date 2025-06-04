@@ -1,0 +1,30 @@
+---
+import ProductCard from './ProductCard.astro';
+import { getAllProducts, type Product, type ProductCategory } from '../data/products.ts';
+
+// Get all products and group by category
+const allProducts: Product[] = getAllProducts();
+const productsByCategory: Record<string, Product[]> = {};
+
+allProducts.forEach((product: Product) => {
+  if (!productsByCategory[product.category]) {
+    productsByCategory[product.category] = [];
+  }
+  productsByCategory[product.category].push(product);
+});
+
+// Get first product from each category (up to 3 categories)
+const categories: string[] = Object.keys(productsByCategory).slice(0, 3);
+const featuredProducts: Product[] = categories.map(category => productsByCategory[category][0]);
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">Featured Products</h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      {featuredProducts.map((product: Product, index: number) => (
+        <ProductCard product={product} categoryIndex={index} />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getAllProducts } from '../data/products.js';
+import ProductCard from '../components/ProductCard.astro';
+import { getAllProducts, type Product } from '../data/products.ts';
 
 const allProducts = getAllProducts();
 
@@ -43,32 +44,7 @@ const categories = [
             
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
               {category.products.map((product) => (
-                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-6 flex flex-col h-full" key={product.name}>
-                  <div class={`h-32 rounded-lg mb-4 flex items-center justify-center ${
-                    index === 0 ? 'bg-gradient-to-br from-pink-100 to-purple-100' :
-                    index === 1 ? 'bg-gradient-to-br from-purple-100 to-pink-100' :
-                    'bg-gradient-to-br from-pink-100 to-purple-100'
-                  }`}>
-                    <svg class={`w-16 h-16 ${
-                      index === 0 ? 'text-pink-600' :
-                      index === 1 ? 'text-purple-600' :
-                      'text-pink-600'
-                    }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                    </svg>
-                  </div>
-                  <h3 class="text-lg font-semibold text-gray-900 mb-1">{product.name}</h3>
-                  <p class="text-sm text-gray-600 mb-4 flex-1">{product.shortDescription}</p>
-                  <div class="flex items-center justify-between">
-                    <span class="text-xl font-bold text-pink-600">{product.price}</span>
-                    <a 
-                      href={`/products/${product.id}`}
-                      class="bg-pink-600 text-white px-4 py-2 rounded-full text-sm hover:bg-pink-700 transition-colors"
-                    >
-                      View Details
-                    </a>
-                  </div>
-                </div>
+                <ProductCard product={product} categoryIndex={index} key={product.name} />
               ))}
             </div>
           </div>
