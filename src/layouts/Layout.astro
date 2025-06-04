@@ -21,7 +21,7 @@ const { title, description = 'Candy Beam - Precision laser cutting and engraving
     <meta name="generator" content={Astro.generator} />
     <title>{title} - Candy Beam</title>
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col overflow-x-hidden max-w-full">
     <Header />
     <main class="flex-grow">
       <slot />
