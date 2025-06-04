@@ -1,28 +1,27 @@
 ---
 import ProductCard from './ProductCard.astro';
-import { getAllProducts, type Product, type ProductCategory } from '../data/products.ts';
+import { getCollection } from 'astro:content';
 
-// Get all products and group by category
-const allProducts: Product[] = getAllProducts();
-const productsByCategory: Record<string, Product[]> = {};
+// Get all products and categories
+const products = await getCollection('products');
+const categories = await getCollection('categories');
 
-allProducts.forEach((product: Product) => {
-  if (!productsByCategory[product.category]) {
-    productsByCategory[product.category] = [];
-  }
-  productsByCategory[product.category].push(product);
-});
-
-// Get first product from each category (up to 3 categories)
-const categories: string[] = Object.keys(productsByCategory).slice(0, 3);
-const featuredProducts: Product[] = categories.map(category => productsByCategory[category][0]);
+// Get first product from each category (sorted by category order)
+const featuredProducts = categories
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+  .slice(0, 3)
+  .map(category => {
+    const categoryProducts = products.filter(p => p.data.category === category.slug);
+    return categoryProducts[0];
+  })
+  .filter(Boolean);
 ---
 
 <section class="py-16 bg-gray-50">
   <div class="container mx-auto px-4">
     <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">Featured Products</h2>
     <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-      {featuredProducts.map((product: Product, index: number) => (
+      {featuredProducts.map((product, index: number) => (
         <ProductCard product={product} categoryIndex={index} />
       ))}
     </div>

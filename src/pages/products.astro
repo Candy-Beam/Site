@@ -1,27 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ProductCard from '../components/ProductCard.astro';
-import { getAllProducts, type Product } from '../data/products.ts';
+import { getCollection } from 'astro:content';
 
-const allProducts = getAllProducts();
+const products = await getCollection('products');
+const categories = await getCollection('categories');
 
-const categories = [
-  {
-    name: "Cake Toppers",
-    description: "Personalized toppers for every occasion",
-    products: allProducts.filter(p => p.category === "Cake Toppers")
-  },
-  {
-    name: "Cupcake Stands", 
-    description: "Display your treats in style",
-    products: allProducts.filter(p => p.category === "Cupcake Stands")
-  },
-  {
-    name: "Custom Designs",
-    description: "Your imagination, our expertise", 
-    products: allProducts.filter(p => p.category === "Custom Designs")
-  }
-];
+const categoriesWithProducts = await Promise.all(
+  categories
+    .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+    .map(async (category) => ({
+      name: category.data.name,
+      description: category.body,
+      products: products.filter(p => p.data.category === category.slug)
+    }))
+);
 ---
 
 <Layout title="Products">
@@ -36,7 +29,7 @@ const categories = [
 
   <section class="py-16">
     <div class="container mx-auto px-4">
-      {categories.map((category, index) => (
+      {categoriesWithProducts.map((category, index) => (
         <div class="mb-16" key={category.name}>
           <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl font-bold text-gray-900 mb-3">{category.name}</h2>
@@ -44,7 +37,7 @@ const categories = [
             
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
               {category.products.map((product) => (
-                <ProductCard product={product} categoryIndex={index} key={product.name} />
+                <ProductCard product={product} categoryIndex={index} key={product.data.name} />
               ))}
             </div>
           </div>

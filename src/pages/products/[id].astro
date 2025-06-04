@@ -1,12 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PhotoGallery from '../../components/PhotoGallery.astro';
-import { getProductById, getAllProducts, type Product } from '../../data/products.ts';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const products = getAllProducts();
+  const products = await getCollection('products');
   return products.map(product => ({
-    params: { id: product.id },
+    params: { id: product.slug },
     props: { product }
   }));
 }
@@ -19,7 +19,7 @@ if (!product) {
 }
 ---
 
-<Layout title={product.name}>
+<Layout title={product.data.name}>
   <!-- Breadcrumb Navigation -->
   <section class="bg-gray-50 py-4">
     <div class="container mx-auto px-4">
@@ -28,7 +28,7 @@ if (!product) {
         <span class="mx-2">/</span>
         <a href="/products" class="hover:text-pink-600">Products</a>
         <span class="mx-2">/</span>
-        <span class="text-gray-900">{product.name}</span>
+        <span class="text-gray-900">{product.data.name}</span>
       </nav>
     </div>
   </section>
@@ -40,30 +40,30 @@ if (!product) {
         <div class="grid lg:grid-cols-2 gap-12">
           <!-- Photo Gallery -->
           <div>
-            <PhotoGallery photos={product.photos} productName={product.name} />
+            <PhotoGallery photos={product.data.photos} productName={product.data.name} />
           </div>
           
           <!-- Product Information -->
           <div>
             <div class="mb-4">
               <span class="inline-block bg-pink-100 text-pink-800 text-sm px-3 py-1 rounded-full font-medium">
-                {product.category}
+                {product.data.category}
               </span>
             </div>
             
-            <h1 class="text-4xl font-bold text-gray-900 mb-4">{product.name}</h1>
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">{product.data.name}</h1>
             
-            <div class="text-3xl font-bold text-pink-600 mb-6">{product.price}</div>
+            <div class="text-3xl font-bold text-pink-600 mb-6">{product.data.price}</div>
             
             <p class="text-lg text-gray-700 mb-8 leading-relaxed">
-              {product.description}
+              {product.body}
             </p>
             
             <!-- Features List -->
             <div class="mb-8">
               <h3 class="text-xl font-semibold text-gray-900 mb-4">Features & Benefits</h3>
               <ul class="space-y-3">
-                {product.features.map((feature) => (
+                {product.data.features.map((feature) => (
                   <li class="flex items-start">
                     <svg class="w-5 h-5 text-pink-600 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -107,10 +107,10 @@ if (!product) {
   <section class="py-16 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">More in {product.category}</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">More in {product.data.category}</h2>
         <div class="grid md:grid-cols-3 gap-6">
-          {getAllProducts()
-            .filter(p => p.category === product.category && p.id !== product.id)
+          {(await getCollection('products'))
+            .filter(p => p.data.category === product.data.category && p.slug !== product.slug)
             .slice(0, 3)
             .map((relatedProduct) => (
               <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden">
@@ -120,12 +120,12 @@ if (!product) {
                   </svg>
                 </div>
                 <div class="p-6">
-                  <h3 class="text-lg font-semibold text-gray-900 mb-2">{relatedProduct.name}</h3>
-                  <p class="text-sm text-gray-600 mb-4">{relatedProduct.shortDescription}</p>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">{relatedProduct.data.name}</h3>
+                  <p class="text-sm text-gray-600 mb-4">{relatedProduct.data.shortDescription}</p>
                   <div class="flex items-center justify-between">
-                    <span class="text-xl font-bold text-pink-600">{relatedProduct.price}</span>
+                    <span class="text-xl font-bold text-pink-600">{relatedProduct.data.price}</span>
                     <a 
-                      href={`/products/${relatedProduct.id}`}
+                      href={`/products/${relatedProduct.slug}`}
                       class="bg-pink-600 text-white px-4 py-2 rounded-full text-sm hover:bg-pink-700 transition-colors"
                     >
                       View Details

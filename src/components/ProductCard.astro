@@ -1,8 +1,8 @@
 ---
-import type { Product } from '../data/products.ts';
+import type { CollectionEntry } from 'astro:content';
 
 export interface Props {
-  product: Product;
+  product: CollectionEntry<'products'>;
   categoryIndex?: number;
 }
 
@@ -23,12 +23,12 @@ const { product, categoryIndex = 0 } = Astro.props;
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
     </svg>
   </div>
-  <h3 class="text-lg font-semibold text-gray-900 mb-1">{product.name}</h3>
-  <p class="text-sm text-gray-600 mb-4 flex-1">{product.shortDescription}</p>
+  <h3 class="text-lg font-semibold text-gray-900 mb-1">{product.data.name}</h3>
+  <p class="text-sm text-gray-600 mb-4 flex-1">{product.data.shortDescription}</p>
   <div class="flex items-center justify-between">
-    <span class="text-xl font-bold text-pink-600">{product.price}</span>
+    <span class="text-xl font-bold text-pink-600">{product.data.price}</span>
     <a 
-      href={`/products/${product.id}`}
+      href={`/products/${product.slug}`}
       class="bg-pink-600 text-white px-4 py-2 rounded-full text-sm hover:bg-pink-700 transition-colors"
     >
       View Details
