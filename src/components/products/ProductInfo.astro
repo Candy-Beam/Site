@@ -1,11 +1,18 @@
 ---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
 export interface Props {
-  categoryName: string;
-  name: string;
-  price: string;
+  product: CollectionEntry<'products'>;
 }
 
-const { categoryName, name, price } = Astro.props;
+const { product } = Astro.props;
+const { Content } = await product.render();
+
+// Get the category display name
+const categories = await getCollection('categories');
+const category = categories.find(cat => cat.slug === product.data.category);
+const categoryName = category?.data.name || product.data.category;
 ---
 
 <div>
@@ -15,11 +22,11 @@ const { categoryName, name, price } = Astro.props;
     </span>
   </div>
   
-  <h1 class="text-4xl font-bold text-gray-900 mb-4">{name}</h1>
+  <h1 class="text-4xl font-bold text-gray-900 mb-4">{product.data.name}</h1>
   
-  <div class="text-3xl font-bold text-pink-600 mb-6">{price}</div>
+  <div class="text-3xl font-bold text-pink-600 mb-6">{product.data.price}</div>
   
   <div class="text-lg text-gray-700 mb-8 leading-relaxed prose prose-lg max-w-none">
-    <slot />
+    <Content />
   </div>
 </div>
