@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import FeaturesList from './FeaturesList.astro';
+import ActionButtons from './ActionButtons.astro';
 
 export interface Props {
   product: CollectionEntry<'products'>;
@@ -29,4 +31,8 @@ const categoryName = category?.data.name || product.data.category;
   <div class="text-lg text-gray-700 mb-8 leading-relaxed prose prose-lg max-w-none">
     <Content />
   </div>
+  
+  <FeaturesList features={product.data.features} />
+  
+  <ActionButtons />
 </div>

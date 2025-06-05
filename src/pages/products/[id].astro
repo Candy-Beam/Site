@@ -3,8 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import PhotoGallery from '../../components/PhotoGallery.astro';
 import Breadcrumb from '../../components/products/Breadcrumb.astro';
 import ProductInfo from '../../components/products/ProductInfo.astro';
-import FeaturesList from '../../components/products/FeaturesList.astro';
-import ActionButtons from '../../components/products/ActionButtons.astro';
 import CustomInfo from '../../components/products/CustomInfo.astro';
 import RelatedProducts from '../../components/products/RelatedProducts.astro';
 import { getCollection } from 'astro:content';
@@ -17,7 +15,6 @@ export async function getStaticPaths() {
   }));
 }
 
-const { id } = Astro.params;
 const { product } = Astro.props;
 
 if (!product) {
@@ -41,10 +38,6 @@ if (!product) {
           <!-- Product Information -->
           <div>
             <ProductInfo product={product} />
-            
-            <FeaturesList features={product.data.features} />
-            
-            <ActionButtons />
             
             <CustomInfo />
           </div>
