@@ -1,0 +1,34 @@
+---
+import ProductCard from '../ProductCard.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  currentProduct: CollectionEntry<'products'>;
+  categorySlug: string;
+}
+
+const { currentProduct, categorySlug } = Astro.props;
+
+// Get the category display name
+const categories = await getCollection('categories');
+const category = categories.find(cat => cat.slug === categorySlug);
+const categoryName = category?.data.name || categorySlug;
+
+const relatedProducts = (await getCollection('products'))
+  .filter(p => p.data.category === currentProduct.data.category && p.slug !== currentProduct.slug)
+  .slice(0, 3);
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">More in {categoryName}</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {relatedProducts.map((relatedProduct) => (
+          <ProductCard product={relatedProduct} />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
