@@ -1,0 +1,16 @@
+---
+export interface Props {
+  value: number;
+  currency?: string;
+  showCents?: boolean;
+  prefix?: string;
+}
+
+const { value, currency = '$', showCents = true, prefix } = Astro.props;
+
+const formattedValue = showCents 
+  ? value.toFixed(2)
+  : value.toFixed(0);
+---
+
+{prefix && `${prefix} `}{currency}{formattedValue}

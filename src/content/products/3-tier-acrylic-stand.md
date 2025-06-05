@@ -1,7 +1,7 @@
 ---
 name: 3-Tier Acrylic Stand
 category: cupcake-stands
-price: $45
+price: 45
 shortDescription: Holds up to 36 cupcakes
 features:
   - Crystal clear acrylic construction

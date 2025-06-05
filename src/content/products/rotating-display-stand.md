@@ -1,7 +1,7 @@
 ---
 name: Rotating Display Stand
 category: cupcake-stands
-price: $55
+price: 55
 shortDescription: 360° rotating base
 features:
   - Smooth 360° rotation mechanism

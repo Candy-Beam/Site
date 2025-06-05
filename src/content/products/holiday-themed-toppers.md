@@ -1,7 +1,7 @@
 ---
 name: Holiday Themed Toppers
 category: cake-toppers
-price: $18
+price: 18
 shortDescription: Seasonal designs for all holidays
 features:
   - Designs for all major holidays

@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import MoneyValue from './MoneyValue.astro';
 
 export interface Props {
   product: CollectionEntry<'products'>;
@@ -27,7 +28,13 @@ const { product, categoryIndex = 0 } = Astro.props;
     <h3 class="text-lg font-semibold text-gray-900 mb-2">{product.data.name}</h3>
     <p class="text-sm text-gray-600 mb-4 flex-1">{product.data.shortDescription}</p>
     <div class="flex items-center justify-between">
-      <span class="text-xl font-bold text-pink-600">{product.data.price}</span>
+      <span class="text-xl font-bold text-pink-600">
+        <MoneyValue 
+          value={product.data.price} 
+          prefix={product.data.pricePrefix}
+          showCents={product.data.pricePrefix == null || product.data.pricePrefix.length == 0}
+        />
+      </span>
       <a 
         href={`/products/${product.slug}`}
         class="bg-pink-600 text-white px-4 py-2 rounded-full text-sm hover:bg-pink-700 transition-colors"

@@ -1,7 +1,7 @@
 ---
 name: Birthday Name Toppers
 category: cake-toppers
-price: $18
+price: 18
 shortDescription: Personalized name toppers for birthday cakes
 features:
   - Custom names in elegant script fonts

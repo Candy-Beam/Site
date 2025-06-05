@@ -1,7 +1,7 @@
 ---
 name: 5-Tier Tower Stand
 category: cupcake-stands
-price: $65
+price: 65
 shortDescription: Perfect for large parties
 features:
   - Impressive 5-tier tower design

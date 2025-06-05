@@ -1,7 +1,8 @@
 ---
 name: Name Plates
 category: custom-designs
-price: From $20
+price: 20
+pricePrefix: From
 shortDescription: Personalized name displays
 features:
   - Multiple font and size options

@@ -1,7 +1,8 @@
 ---
 name: Logo Engravings
 category: custom-designs
-price: From $25
+price: 25
+pricePrefix: From
 shortDescription: Business logos on various materials
 features:
   - Multiple material options

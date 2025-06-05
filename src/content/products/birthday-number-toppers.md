@@ -1,7 +1,7 @@
 ---
 name: Birthday Number Toppers
 category: cake-toppers
-price: $15
+price: 15
 shortDescription: Custom age numbers in various styles
 features:
   - Food-safe acrylic material

@@ -1,7 +1,7 @@
 ---
 name: Collapsible Wood Stand
 category: cupcake-stands
-price: $40
+price: 40
 shortDescription: Easy storage design
 features:
   - Sustainably sourced wood

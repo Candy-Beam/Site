@@ -1,7 +1,8 @@
 ---
 name: Cake Decorating Tools
 category: custom-designs
-price: From $30
+price: 30
+pricePrefix: From
 shortDescription: Custom tools for professionals
 features:
   - Professional-grade construction

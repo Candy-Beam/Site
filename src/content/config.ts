@@ -5,7 +5,8 @@ const products = defineCollection({
   schema: z.object({
     name: z.string(),
     category: z.string(),
-    price: z.string(),
+    price: z.number(),
+    pricePrefix: z.string().optional(),
     shortDescription: z.string(),
     features: z.array(z.string()),
     photos: z.array(z.string()),

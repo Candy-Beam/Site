@@ -1,7 +1,8 @@
 ---
 name: Cookie Stencils
 category: custom-designs
-price: From $15
+price: 15
+pricePrefix: From
 shortDescription: Food-safe stencils for decorating
 features:
   - Food-safe material construction

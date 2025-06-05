@@ -1,7 +1,7 @@
 ---
 name: Baby Shower Toppers
 category: cake-toppers
-price: $20
+price: 20
 shortDescription: Cute designs for your special day
 features:
   - Adorable baby-themed designs

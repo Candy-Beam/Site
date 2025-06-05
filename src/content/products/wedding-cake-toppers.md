@@ -1,7 +1,7 @@
 ---
 name: Wedding Cake Toppers
 category: cake-toppers
-price: $35
+price: 35
 shortDescription: Elegant Mr & Mrs designs
 features:
   - Premium acrylic and wood options
