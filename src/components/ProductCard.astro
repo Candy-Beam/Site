@@ -11,18 +11,28 @@ const { product, categoryIndex = 0 } = Astro.props;
 ---
 
 <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden flex flex-col h-full">
-  <div class={`h-48 flex items-center justify-center ${
-    categoryIndex === 0 ? 'bg-gradient-to-br from-pink-100 to-purple-100' :
-    categoryIndex === 1 ? 'bg-gradient-to-br from-purple-100 to-pink-100' :
-    'bg-gradient-to-br from-pink-100 to-purple-100'
-  }`}>
-    <svg class={`w-16 h-16 ${
-      categoryIndex === 0 ? 'text-pink-600' :
-      categoryIndex === 1 ? 'text-purple-600' :
-      'text-pink-600'
-    }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-    </svg>
+  <div class="h-48 relative overflow-hidden">
+    {product.data.photos && product.data.photos.length > 0 ? (
+      <img 
+        src={product.data.photos[0]} 
+        alt={product.data.name}
+        class="w-full h-full object-cover"
+      />
+    ) : (
+      <div class={`h-full flex items-center justify-center ${
+        categoryIndex === 0 ? 'bg-gradient-to-br from-pink-100 to-purple-100' :
+        categoryIndex === 1 ? 'bg-gradient-to-br from-purple-100 to-pink-100' :
+        'bg-gradient-to-br from-pink-100 to-purple-100'
+      }`}>
+        <svg class={`w-16 h-16 ${
+          categoryIndex === 0 ? 'text-pink-600' :
+          categoryIndex === 1 ? 'text-purple-600' :
+          'text-pink-600'
+        }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+        </svg>
+      </div>
+    )}
   </div>
   <div class="p-6 flex flex-col flex-1">
     <h3 class="text-lg font-semibold text-gray-900 mb-2">{product.data.name}</h3>
