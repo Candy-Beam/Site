@@ -10,6 +10,11 @@ const products = defineCollection({
     shortDescription: z.string(),
     features: z.array(z.string()),
     photos: z.array(z.string()),
+    model3d: z.object({
+      src: z.string(),
+      alt: z.string().optional(),
+      poster: z.string().optional(),
+    }).optional(),
   }),
 });
 
