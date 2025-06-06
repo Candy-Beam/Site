@@ -13,7 +13,7 @@ photos:
   - /images/3-tier-stand-1.svg
   - /images/3-tier-stand-2.svg
 model3d:
-  src: https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb
+  src: /3d/cupcake_stand.glb
 ---
 
 Display your cupcakes in style with our elegant 3-tier acrylic stand.
