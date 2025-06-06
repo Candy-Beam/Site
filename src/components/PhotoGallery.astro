@@ -2,22 +2,42 @@
 export interface Props {
   photos: string[];
   productName: string;
+  model3d?: {
+    src: string;
+    alt?: string;
+    poster?: string;
+  };
 }
 
-const { photos, productName } = Astro.props;
+const { photos, productName, model3d } = Astro.props;
+const allMedia = model3d ? [...photos, '3d-model'] : photos;
 ---
 
 <div class="photo-gallery">
-  <div class="main-image-container">
+  <div class="main-image-container relative">
     <img 
       id="main-image" 
       src={photos[0]} 
       alt={`${productName} - Main photo`}
       class="w-full h-96 object-cover rounded-lg shadow-lg"
     />
+    {model3d && (
+      <model-viewer
+        id="model-viewer"
+        src={model3d.src}
+        alt={model3d.alt || `${productName} - 3D Model`}
+        poster={model3d.poster}
+        class="w-full h-96 rounded-lg shadow-lg hidden"
+        camera-controls
+        auto-rotate
+        shadow-intensity="1"
+        exposure="1"
+        style="background-color: #f3f4f6;"
+      ></model-viewer>
+    )}
   </div>
   
-  {photos.length > 1 && (
+  {(photos.length > 1 || model3d) && (
     <div class="thumbnail-container mt-4">
       <div class="flex gap-3 overflow-x-auto pb-2">
         {photos.map((photo, index) => (
@@ -25,6 +45,7 @@ const { photos, productName } = Astro.props;
             class={`thumbnail-btn flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
               index === 0 ? 'border-pink-500' : 'border-gray-200 hover:border-pink-300'
             }`}
+            data-media-type="image"
             data-photo={photo}
             data-index={index}
           >
@@ -35,6 +56,19 @@ const { photos, productName } = Astro.props;
             />
           </button>
         ))}
+        {model3d && (
+          <button
+            class="thumbnail-btn flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all border-gray-200 hover:border-pink-300"
+            data-media-type="3d"
+            data-index={photos.length}
+          >
+            <div class="w-full h-full flex items-center justify-center bg-gray-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+              </svg>
+            </div>
+          </button>
+        )}
       </div>
     </div>
   )}
@@ -61,18 +95,28 @@ const { photos, productName } = Astro.props;
   }
 </style>
 
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const mainImage = document.getElementById('main-image');
+    const modelViewer = document.getElementById('model-viewer');
     const thumbnailButtons = document.querySelectorAll('.thumbnail-btn');
     
     thumbnailButtons.forEach((btn, index) => {
       btn.addEventListener('click', function() {
+        const mediaType = this.getAttribute('data-media-type');
         const photoSrc = this.getAttribute('data-photo');
         const photoIndex = this.getAttribute('data-index');
         
-        // Update main image
-        if (mainImage && photoSrc) {
+        if (mediaType === '3d' && modelViewer) {
+          // Show 3D model, hide image
+          mainImage?.classList.add('hidden');
+          modelViewer.classList.remove('hidden');
+        } else if (mediaType === 'image' && mainImage && photoSrc) {
+          // Show image, hide 3D model
+          modelViewer?.classList.add('hidden');
+          mainImage.classList.remove('hidden');
           mainImage.src = photoSrc;
           mainImage.alt = `${mainImage.alt.split(' - ')[0]} - Photo ${parseInt(photoIndex) + 1}`;
         }
